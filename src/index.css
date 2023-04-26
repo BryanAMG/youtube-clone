@@ -1,0 +1,103 @@
+html,
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 10px;
+  height: 200px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+
+.category-btn:hover span{
+  color: white ;
+}
+
+.react-player {
+  height: 77vh ;
+  width: 100% ;
+}
+
+.search-bar{
+  border:none;
+  outline:none;
+  width:350px;
+}
+
+.category-btn{
+  font-weight: bold ;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: .5rem;
+  cursor:pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  line-height: 0;
+  padding: 7px 15px;
+  margin: 5px 0px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  color: white;
+  opacity: .8;
+  min-width: max-content
+}
+
+.category-btn .category-icon{
+  color : #FC1503
+}
+
+
+.category-btn.active .category-icon{
+  color :white;
+}
+.category-btn.active,
+.category-btn:hover {
+  background-color: #FC1503 ;
+  color: white ;
+  opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .category-btn{
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width:800px){
+  .copyright{
+    display:none ;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .scroll-horizontal {
+    overflow: auto ;
+  }
+
+  .react-player {
+    height: 45vh ;
+  }
+  .search-bar{
+    width:200px;
+  }
+}
