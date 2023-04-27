@@ -12,7 +12,6 @@ export const fetchFromApi = async ({ query }) => {
     const response = await fetch(url, options)
     if (!response.ok) throw new Error('error en la peticion')
     const results = await response.json()
-    console.log(results)
     return results.items ?? []
   } catch (error) {
     console.error(error)

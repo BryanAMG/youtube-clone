@@ -17,7 +17,6 @@ export const Feed = () => {
     const query = `search?part=snippet&q=${category}&maxResults=30`
     fetchFromApi({ query })
       .then(setVideos)
-      .catch(err => console.log(err))
       .finally(() => setLoading(false))
   }, [category])
   return (

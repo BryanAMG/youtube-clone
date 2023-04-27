@@ -24,7 +24,7 @@ export const ChannelDetail = () => {
     fetchFromApi({ query: queryVideos })
       .then(data => setVideos(data))
   }, [])
-  console.log({ error })
+
   if (error) return <Box height='calc(100vh - 61px)' width='100%' display='flex' justifyContent='center' alignItems='center'>{error.message}</Box>
   return (
     <Box>
