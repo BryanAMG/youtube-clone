@@ -6,6 +6,9 @@ import { SearchBar } from './SearchBar'
 export const Navbar = props => {
   return (
     <Stack
+      zIndex={100}
+      maxWidth='1200px'
+      mx='auto'
       direction='row'
       alignItems='center'
       justifyContent='space-between'
@@ -14,7 +17,7 @@ export const Navbar = props => {
       bgcolor='black'
       p={1}
       sx={{
-        mr: { sm: 5 }
+        pr: { sm: 5 }
       }}
     >
       <Link to='/' style={{ display: 'flex', alignItems: 'center' }}>

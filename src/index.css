@@ -11,7 +11,7 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0px;
   height: 5px;
 }
 
@@ -31,8 +31,8 @@ a {
 }
 
 .react-player {
-  height: 77vh ;
-  width: 100% ;
+  width: 100%;
+  aspect-ratio: 16/9;
 }
 
 .search-bar{
@@ -83,7 +83,7 @@ a {
   }
 }
 
-@media screen and (max-width:800px){
+@media screen and (max-width:900px){
   .copyright{
     display:none ;
   }
@@ -94,9 +94,6 @@ a {
     overflow: auto ;
   }
 
-  .react-player {
-    height: 45vh ;
-  }
   .search-bar{
     width:200px;
   }

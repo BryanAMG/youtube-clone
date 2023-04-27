@@ -10,6 +10,7 @@ export const Sidebar = ({ category, setCategory }) => {
       sx={{
         flexDirection: { md: 'column' },
         px: { md: 2 },
+        '&::-webkit-scrollbar': { width: '5px' },
         '&:hover::-webkit-scrollbar-thumb': { bgcolor: 'rgb(114, 113, 113)' }
       }}
     >

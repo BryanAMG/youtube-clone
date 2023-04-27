@@ -1,23 +1,29 @@
-import { Box, Grid, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import { Sidebar } from '../components/Sidebar'
 import { useEffect, useState } from 'react'
-import { getVideosByCategory } from '../services/getVideos'
-import { Category } from '@mui/icons-material'
+import { fetchFromApi } from '../services/getVideos'
+import { Videos } from '../components/Videos'
+import { Loader } from '../components/Loader'
 
 export const Feed = () => {
   const [category, setCategory] = useState('New')
   const [videos, setVideos] = useState([])
-
+  const [loading, setLoading] = useState(false)
   const handleCategory = ({ newCategory }) => {
     setCategory(newCategory)
   }
   useEffect(() => {
+    setLoading(true)
     const query = `search?part=snippet&q=${category}&maxResults=30`
-    getVideosByCategory({ query })
+    fetchFromApi({ query })
       .then(setVideos)
+      .catch(err => console.log(err))
+      .finally(() => setLoading(false))
   }, [category])
   return (
     <Stack
+      maxWidth='1200px'
+      mx='auto'
       sx={{
         flexDirection: { md: 'row' },
         height: { md: 'calc(100% - 61px)' }
@@ -41,27 +47,12 @@ export const Feed = () => {
           Material UI - RapidApi
         </Typography>
       </Stack>
-      <Box flex={1} px={2} pr={4}>
-        <Typography variant='h4' component='h1' py={2}> {category}
+      <Box flex={1} p={2} pr={4} overflow='auto' display='flex' flexDirection='column'>
+        <Typography variant='h4' component='h1' mb={2}> {category}
           <Typography variant='h4' component='span' color='#FC1503'> videos </Typography>
         </Typography>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={4}>
-            hola
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            hola
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            hola
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            hola
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            hola
-          </Grid>
-        </Grid>
+        {videos?.length > 0 && <Videos videos={videos} />}
+        {loading && <Loader />}
       </Box>
     </Stack>
   )
