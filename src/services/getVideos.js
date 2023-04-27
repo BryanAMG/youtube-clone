@@ -2,7 +2,7 @@ const BASE_URL = 'https://youtube-v31.p.rapidapi.com'
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
+    'X-RapidAPI-Key': 'f8679b8440msh1a5dbfbd5fe02b9p160aeejsnbcb3742a461f',
     'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
   }
 }
