@@ -6,14 +6,14 @@ const options = {
     'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
   }
 }
-export const getVideosByCategory = async ({ query }) => {
+export const fetchFromApi = async ({ query }) => {
   const url = `${BASE_URL}/${query}`
   try {
     const response = await fetch(url, options)
     if (!response.ok) throw new Error('error en la peticion')
     const results = await response.json()
     console.log(results)
-    return results.items
+    return results.items ?? []
   } catch (error) {
     console.error(error)
   }
